@@ -44,6 +44,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+# https://django-bootstrap-v5.readthedocs.io/en/latest/installation.html
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap5',
     'accountapp',
 ]
 
@@ -119,9 +121,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
