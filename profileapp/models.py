@@ -31,6 +31,8 @@ class Profile(models.Model):
     def generate_thumbnail(self):
         """
         썸네일 생성 메서드
+        https://pillow.readthedocs.io/en/stable/reference/Image.html
+        https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.thumbnail
         """
         # 먼저 사용자가 이미지를 업로드했는지 확인
         if self.image:
@@ -40,9 +42,14 @@ class Profile(models.Model):
             # 이미지 프로세싱 결과물을 임시저장해놓을 메모리를 할당
             output = BytesIO()
 
+            # 이미지 사이즈를 확인하고 비율을 계산
+            width, height = img.size
+            ratio = height / width
+            pixel = 250
+
             # 원하는 이미지 사이즈로 이미지를 변형
             img = img.convert('RGB')
-            img = img.resize((200, 200), Image.ANTIALIAS)
+            img.thumbnail((pixel, round( pixel * ratio )))
 
             # 이미지를 이전에 만든 메모리 공간에 저장
             img.save(output, format='JPEG', quality=95)

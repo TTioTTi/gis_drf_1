@@ -7,7 +7,11 @@
         <!-- Profile 들어가는 부분 -->
         <div class="my-5">
 
-            {% if target_user.profile.image %}
+            {% if target_user.profile.thumb %}
+            <img src="{{ target_user.profile.thumb.url }}"
+                 style="width: 13rem; height: 13rem; border-radius: 20rem; object-fit: cover;" alt="">
+
+            {% elif target_user.profile.image %}
             <img src="{{ target_user.profile.image.url }}"
                  style="width: 13rem; height: 13rem; border-radius: 20rem; object-fit: cover;" alt="">
             {% endif %}
