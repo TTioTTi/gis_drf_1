@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div style="max-width: 400px; margin: auto;">
+
+        <div class="my-5">
+
+            <h1>{{ target_article.title }}</h1>
+            <h5>{{ target_article.created_at }}</h5>
+
+            {% if target_article.image %}
+            <img src="{{ target_article.image.url }}"
+                 style="border-radius: 2rem; width: 100%" alt="">
+            {% endif %}
+
+        </div>
+
+        <div>
+            <!-- 특수문자 정상 출력 (| safe) -->
+            {{ target_article.content | safe }}
+        </div>
+
+    </div>
+
+{% endblock %}
